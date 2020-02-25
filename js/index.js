@@ -109,12 +109,7 @@ function disconnect() {
 }
 
 function onDisconnect(){
-	
-	while (! ble.isConnected()) {
-		//document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
-		ble.connect(ConnDeviceId, onConnect, onConnError);
-	}
-  }
+	document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
 }
 function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
