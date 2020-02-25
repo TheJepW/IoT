@@ -110,7 +110,7 @@ function disconnect() {
 
 function onDisconnect(){
 	//document.getElementById("statusDiv").innerHTML = " Status: Disonnected";
-	reConnect();
+	reConnect;
 }
 function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
