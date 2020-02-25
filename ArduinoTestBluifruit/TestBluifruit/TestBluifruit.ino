@@ -93,7 +93,8 @@ void setup(void)
   }
 
   //Give module a new name
-  ble.println("AT+GAPDEVNAME=TLONE"); // named TLONE
+  ble.println("AT+GAPDEVNAME=IOT_JMM"); // named TLONE
+  ble.println("AT+BLEPOWERLEVEL=-40"); // named TLONE
 
   // Check response status
   ble.waitForOK();
