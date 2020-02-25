@@ -34,7 +34,7 @@ var deviceList =[];
  
 function onLoad(){
 	document.addEventListener('deviceready', onDeviceReady, false);
-    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
+    bleDeviceList.addEventListener('touchstart', conn, true); // assume not scrolling
 }
 
 function onDeviceReady(){
