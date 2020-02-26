@@ -113,7 +113,7 @@ function disconnect() {
 function onDisconnect(){
 	while (! ble.isConnected()) {
 	ble.connect(ConnDeviceId, onConnect, onConnError);
-	document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
+	//document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
 	}
 }
 function onError(reason)  {
