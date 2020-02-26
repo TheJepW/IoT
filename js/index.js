@@ -57,11 +57,11 @@ function refreshDeviceList(){
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
 		var listItem = document.createElement('li'),
-		if (device.name == "IoT_JMM"){
+		//if (device.name == "IoT_JMM"){
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
-		}
+		//}
 }
 
 
@@ -76,7 +76,7 @@ function conn(){
  
  //succes
 function onConnect(){
-		document.getElementById("statusDiv").innerHTML = " Status: Connected";
+	document.getElementById("statusDiv").innerHTML = " Status: Connected";
 	document.getElementById("bleId").innerHTML = ConnDeviceId;
 	ble.startNotification(ConnDeviceId, blue.serviceUUID, blue.rxCharacteristic, onData, onError);
 }
