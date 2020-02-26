@@ -61,6 +61,7 @@ function onDiscoverDevice(device){
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
+		ble.connect(ConnDeviceId, onConnect, onConnError);
 	}
 }
 
