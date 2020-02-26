@@ -57,10 +57,10 @@ function refreshDeviceList(){
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
 		var listItem = document.createElement('li'),
-		if(device.name == "IoT_MMJ"){
-			html = device.name+ "," + device.id;
-			listItem.innerHTML = html;
-			document.getElementById("bleDeviceList").appendChild(listItem);
+		if (device.name == "IoT_JMM"){
+		html = device.name+ "," + device.id;
+		listItem.innerHTML = html;
+		document.getElementById("bleDeviceList").appendChild(listItem);
 		}
 }
 
@@ -76,7 +76,7 @@ function conn(){
  
  //succes
 function onConnect(){
-	document.getElementById("statusDiv").innerHTML = " Status: Connected";
+		document.getElementById("statusDiv").innerHTML = " Status: Connected";
 	document.getElementById("bleId").innerHTML = ConnDeviceId;
 	ble.startNotification(ConnDeviceId, blue.serviceUUID, blue.rxCharacteristic, onData, onError);
 }
@@ -111,7 +111,10 @@ function disconnect() {
 }
 
 function onDisconnect(){
-	document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
+	while (! ble.isConnected()) {
+	ble.connect(ConnDeviceId, onConnect, onConnError);
+	//document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
+	}
 }
 function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
