@@ -56,10 +56,13 @@ function refreshDeviceList(){
 
 function onDiscoverDevice(device){
 	//Make a list in html and show devises
+	if(device.name == "IoT_JMM"){
 		var listItem = document.createElement('li'),
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
+		ble.connect(ConnDeviceId, onConnect, onConnError);
+	}
 }
 
 
@@ -103,13 +106,16 @@ function onSend(){
 	document.getElementById("sendDiv").innerHTML = "Sent: " + GemtInput.value + "<br/>";
 }
 
-
+//Virker ikke
 function disconnect() {
 	ble.disconnect(ConnDeviceId, onDisconnect, onError);
 }
 
 function onDisconnect(){
-	document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
+	while (! ble.isConnected()) {
+	ble.connect(ConnDeviceId, onConnect, onConnError);
+	//document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
+	}
 }
 function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert

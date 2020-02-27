@@ -1,5 +1,11 @@
+/* Two example, where formatting are
+  * added directly on a html-tag
+  */
 body{
 	background-color: green;
+	/*background-image:url("bluetooth.jpg");
+	background-repeat: no-repeat;*/
+
 }	
 img{
 	width: 100%;	
@@ -15,26 +21,21 @@ img{
 	margin: auto;
 }
 
-#bleDeviceList{
-	
+#text{
+	background-color: blue;
 }	
-#messageInput{
-	
-}
 #list{
 	background-color: red;
 }
 
 /* width will be 100% of content */
-#refreshButton{
+#button1{
 	width: 100%;
 }
-#sendButton{
-	width: 100%;
-}
-#ledOnButton{
-	width: 100%;
-}
-#ledOffButton{
-	width: 100%;
-}
+	
+	
+	
+	
+
+
+
