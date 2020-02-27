@@ -1,48 +1,33 @@
-/* Two example, where formatting are
-  * added directly on a html-tag
-  */
+
 body{
 	background-image: url("img.png");
 	background-color: #000000;
 	background-repeat: no-repeat;
 	background-size:cover;
-	margin: 0; 
-	height: 100%; 
-	overflow: hidden;
-
+	font: bold 30px/40px Sylfaen;
+	text-decoration: none;
+	text-align: center;
+	color: white;
 }	
 
-/* The content div soround
-  * every thing in the body
-  * The css make content  smaller than the body itself
-  * and centret.
-  */
-  
-#content {
-	color: white;
-	width: 100%;
-	text-align: center
-
+#welcome {
+	font-size: 45px;
 }
 
 #aav{
 	
   background: rgba(43, 106, 204, 0.9);
+  font: bold 30px/40px Sylfaen;
   color: white;
   border-radius: 25px;
-  border: none;
-  padding: 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  padding: 20px;
+  font-size: 30px;
   width: 75%;
 }
 
 #aav:active {
   opacity: 0.5;
 }
-
 
 	
 	
