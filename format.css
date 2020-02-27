@@ -4,22 +4,21 @@
 body{
 	background-image: url("img.png");
 	background-color: #000000;
-	/*background-image:url("bluetooth.jpg");
-	background-repeat: no-repeat;*/
+	background-repeat: no-repeat;
+	background-size:cover;
 
 }	
-img{
-	width: 100%;	
-}
 
 /* The content div soround
   * every thing in the body
   * The css make content  smaller than the body itself
   * and centret.
   */
+  
 #content {
 	width: 75%;
 	margin: auto;
+	text-align: center
 }
 
 #text{
@@ -29,16 +28,19 @@ img{
 	background-color: red;
 }
 
-#button {
+#aav{
   background-color: #000000; /* Green */
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  width: 100%;
 }
+
+
 	
 	
 	
