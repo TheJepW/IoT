@@ -16,28 +16,29 @@ body{
   */
   
 #content {
-	width: 99%;
+	color: white;
+	width: 100%;
 	margin: auto;
 	text-align: center
-}
 
-#text{
-	color: white;
-}	
-#list{
-	background-color: red;
 }
 
 #aav{
-  background-color: #000000; /* Green */
-  border: none;
+	
+  background: rgba(43, 106, 204, 0.9);
   color: white;
-  padding: 35px;
+  border-radius: 25px;
+  border: none;
+  padding: 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  width: 100%;
+  width: 75%;
+}
+
+#aav:active {
+  opacity: 0.5;
 }
 
 
