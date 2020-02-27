@@ -13,7 +13,7 @@
 
     <content src="index.html" />
 	
-	<gap:plugin name="cordova-plugin-ble-central" source="npm" />
+	<plugin name="cordova-plugin-ble-central" spec="^1.1.4">
         <variable name="BLUETOOTH_USAGE_DESCRIPTION" value="Bluetooth development purposes" />
     </plugin>
 
