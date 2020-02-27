@@ -44,6 +44,7 @@ function connectCallback(){
 function disconnectCallback(){
 	alert("Problem connecting");
 	document.getElementById("statusDiv").innerHTML = " Status: Disonnected";
+	onLoad();
 }
 
  function onData(data){ // data received from Arduino
@@ -62,18 +63,4 @@ function sendData() { // send data to Arduino
 	
 function onSend(){
 	document.getElementById("sendDiv").innerHTML = "Sent: " + GemtInput.value + "<br/>";
-}
-
-function disconnect() {
-	ble.disconnect(ConnDeviceId, onDisconnect, onError);
-}
-
-function onDisconnect(){
-	while (! ble.isConnected()) {
-	ble.connect(ConnDeviceId, onConnect, onConnError);
-	//document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
-	}
-}
-function onError(reason)  {
-	alert("ERROR: " + reason); // real apps should use notification.alert
 }
