@@ -29,22 +29,63 @@ var blue ={
     rxCharacteristic: '6e400003-b5a3-f393-e0a9-e50e24dcca9e'  // receive is from the phone's perspective
 }
 
-var ConnDeviceId = "IoT_JMM";
+var ConnDeviceId;
 var deviceList =[];
  
 function onLoad(){
-	ble.autoConnect(device_id, connectCallback, disconnectCallback);
+	document.addEventListener('deviceready', onDeviceReady, false);
+    bleDeviceList.addEventListener('touchstart', conn, false); // assume not scrolling
 }
-function connectCallback(){
+
+function onDeviceReady(){
+	refreshDeviceList();
+}
+
+	 
+function refreshDeviceList(){
+	//deviceList =[];
+	document.getElementById("bleDeviceList").innerHTML = ''; // empties the list
+	if (cordova.platformId === 'android') { // Android filtering is broken
+		ble.scan([], 5, onDiscoverDevice, onError);
+	} else {
+		//alert("Disconnected");
+		ble.scan([blue.serviceUUID], 5, onDiscoverDevice, onError);
+	}
+}
+
+
+function onDiscoverDevice(device){
+	//Make a list in html and show devises
+	if(device.name == "IoT_JMM"){
+		var listItem = document.createElement('li'),
+		html = device.name+ "," + device.id;
+		listItem.innerHTML = html;
+		document.getElementById("bleDeviceList").appendChild(listItem);
+		ble.connect(ConnDeviceId, onConnect, onConnError);
+	}
+}
+
+
+function conn(){
+	var  deviceTouch= event.srcElement.innerHTML;
+	document.getElementById("debugDiv").innerHTML =""; // empty debugDiv
+	var deviceTouchArr = deviceTouch.split(",");
+	ConnDeviceId = deviceTouchArr[1];
+	//document.getElementById("debugDiv").innerHTML += "<br>"+deviceTouchArr[0]+"<br>"+deviceTouchArr[1]; //for debug:
+	ble.connect(ConnDeviceId, onConnect, onConnError);
+ }
+ 
+ //succes
+function onConnect(){
 	document.getElementById("statusDiv").innerHTML = " Status: Connected";
 	document.getElementById("bleId").innerHTML = ConnDeviceId;
 	ble.startNotification(ConnDeviceId, blue.serviceUUID, blue.rxCharacteristic, onData, onError);
 }
 
-function disconnectCallback(){
+//failure
+function onConnError(){
 	alert("Problem connecting");
 	document.getElementById("statusDiv").innerHTML = " Status: Disonnected";
-	onLoad();
 }
 
  function onData(data){ // data received from Arduino
@@ -64,3 +105,20 @@ function sendData() { // send data to Arduino
 function onSend(){
 	document.getElementById("sendDiv").innerHTML = "Sent: " + GemtInput.value + "<br/>";
 }
+
+//Virker ikke
+function disconnect() {
+	ble.disconnect(ConnDeviceId, onDisconnect, onError);
+}
+
+function onDisconnect(){
+	while (! ble.isConnected()) {
+	ble.connect(ConnDeviceId, onConnect, onConnError);
+	//document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
+	}
+}
+function onError(reason)  {
+	alert("ERROR: " + reason); // real apps should use notification.alert
+}
+
+	
