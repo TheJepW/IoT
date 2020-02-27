@@ -61,6 +61,7 @@ function onDiscoverDevice(device){
 		html = device.name+ "," + device.id;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
+		ble.connect(ConnDeviceId, onConnect, onConnError);
 	}
 }
 
@@ -71,8 +72,7 @@ function conn(){
 	var deviceTouchArr = deviceTouch.split(",");
 	ConnDeviceId = deviceTouchArr[1];
 	//document.getElementById("debugDiv").innerHTML += "<br>"+deviceTouchArr[0]+"<br>"+deviceTouchArr[1]; //for debug:
-	//ble.connect(ConnDeviceId, onConnect, onConnError);
-	ble.connect(ConnDeviceId, onConnect, onReconnect, onConnError);
+	ble.connect(ConnDeviceId, onConnect, onConnError);
  }
  
  //succes
@@ -81,35 +81,12 @@ function onConnect(){
 	document.getElementById("bleId").innerHTML = ConnDeviceId;
 	ble.startNotification(ConnDeviceId, blue.serviceUUID, blue.rxCharacteristic, onData, onError);
 }
-function OnReconnect(){
-	ble.disconnect(device.name);
-	document.getElementById("statusDiv").innerHTML = " Status: Connecting...";
-	
-	for (!ble.connect;i=0;i<5000;i++)
-	{
-		delay (500);
-		ble.connect(ConnDeviceId);
-		//document.getElementById("statusDiv").innerHTML = " Status: Trying to reconnect";
-	}
-	//ble.connect(ConnDeviceId, onConnect, onConnError);
-	}
-	
+
 //failure
 function onConnError(){
 	alert("Problem connecting");
 	document.getElementById("statusDiv").innerHTML = " Status: Disonnected";
-	/*
-	//ny kode
-	ble.disconnect (deviceAddress);
-    reconnect = setTimeout (function tryToBack () {
-        ble.connect (deviceAddress, sc, connectFailed);
-        log ("Try Connecting !!");
-        reconnect = setTimeout (tryToBack, 10000);
-        },
-    100);
-	*/
 }
-
 
  function onData(data){ // data received from Arduino
 	document.getElementById("receiveDiv").innerHTML =  "Received: " + bytesToString(data) + "<br/>";
@@ -135,29 +112,11 @@ function disconnect() {
 }
 
 function onDisconnect(){
-	//   while (! ble.isConnected()) {
-	//   ble.connect(ConnDeviceId, onConnect, onConnError);
-	document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
+	while (! ble.isConnected()) {
+	ble.connect(ConnDeviceId, onConnect, onConnError);
+	//document.getElementById("statusDiv").innerHTML = "Status: Disconnected";
 	}
-/*	
-function onDisconnect(characteristic){ //Reconnect feature by ElJefesDel
-	log ("connectFailed to" + characteristic.name);
-    ble.disconnect (deviceAddress);
-    reconnect = setTimeout (function tryToBack () {
-        ble.connect (deviceAddress, sc, connectFailed);
-        log ("Try Connecting !!");
-        reconnect = setTimeout (tryToBack, 10000);
-        },
-    100);
 }
-*/
-function sc (data) {
-    clearTimeout (reconnect);
-    log ("Success reconnect to" + data.name);
-    log ("with address" + deviceAddress);
-    connectSuccess (data)
-}
-
 function onError(reason)  {
 	alert("ERROR: " + reason); // real apps should use notification.alert
 }
