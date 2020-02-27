@@ -23,17 +23,22 @@ img{
 }
 
 #text{
-	background-color: white;
+	color: white;
 }	
 #list{
 	background-color: red;
 }
 
-/* width will be 100% of content */
-#button1{
-	width: 100%;
+#button {
+  background-color: #000000; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
-	
 	
 	
 	

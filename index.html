@@ -17,24 +17,26 @@
 			<h1>Bluifruit test</h1>
 			   
 			<ul id="bleDeviceList"> </ul>  
-			<button id="refreshButton" onClick = "refreshDeviceList()">Refresh</button>
+			<button id="refreshButton" type="button" onClick = "refreshDeviceList()">Refresh</button>
 			<br>
 			<div id="statusDiv">Status: Disconnected</div>
 			<div id="bleId">DeviceId:</div>
 			<div id="debugDiv"></div>
 			<br><br>
-			<button id="ledOnButton" onclick = "data('1')">Set led ON</button>
+			<button id="aav" type="button" onclick = "data('0')">Åben vindue</button>
+			<button id="lv" type="button" onclick = "data('1')">Luk vindue</button>
 			<br><br>
-			<button id="ledOffButton" onclick = "data('0')">Set Led Off</button>
-			<br><br><br>
+			<button id="st" type="button" onclick = "data('2')">Strømskinne til</button>
+			<button id="sf" type="button" onclick = "data('3')">Strømskinne fra</button>
+			<br><br>
+			<button id="lt" type="button" onclick = "data('4')">Lys til</button>
+			<button id="lf" type="button" onclick = "data('5')">Lys fra</button>
+			<br>
 
 			<input type="hidden" id="GemtInput" >
-			<br>
 			
-
-			<br>
+			<br><br><br>
 			
-			<br>
 			<div id="sendDiv"></div>
 			<br><br>
 			<!--<button id="disconnectButton"onClick="disconnect()">Disconnect</button>-->
