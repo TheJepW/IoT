@@ -22,7 +22,8 @@ img{
 }
 
 #text{
-	background-color: blue;
+	background-image: url("img.png");
+	background-color: #cccccc;
 }	
 #list{
 	background-color: red;
