@@ -2,7 +2,8 @@
   * added directly on a html-tag
   */
 body{
-	background-color: green;
+	background-image: url("img.png");
+	background-color: #000000;
 	/*background-image:url("bluetooth.jpg");
 	background-repeat: no-repeat;*/
 
@@ -22,8 +23,7 @@ img{
 }
 
 #text{
-	background-image: url("img.png");
-	background-color: #cccccc;
+	background-color: white;
 }	
 #list{
 	background-color: red;
