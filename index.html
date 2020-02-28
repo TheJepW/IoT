@@ -4,46 +4,41 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		
 		<meta name="viewport" content="width=device-width, initial-scale=1">	
-		<link rel = "stylesheet" type = "text/css" href = "format.css">   <!-- Link to style sheet named format.css -->
+		<link rel = "stylesheet" type = "text/css" href = "format.css">
 		<script type="text/javascript" src="cordova.js"></script> 
         <script type="text/javascript" src="index.js"></script>
-        <title>Beacon</title>
+        <title>Octopus Tech</title>
     </head>
      <body onload="onLoad()">
-		<!-- Content: div-tag with id = "content" -->
 		<div id = "content">
+			<div id="debugDiv"></div>
 			<br>
 			<div id="welcome">Octopus Tech!</div>
 			<br>
 			<div id="slogan">- smart home solutions</div>
-			   
 			<ul id="bleDeviceList"> </ul>  
-			<button id="aav" type="button" onClick = "refreshDeviceList()">Søg efter enhed</button>
+			<button id="aav" onClick = "refreshDeviceList()">Søg efter enhed</button>
 			<br><br>
 			<div id="statusDiv">Status: Disconnected</div>
 			<br>
 			<div id="bleId">DeviceId:</div>
-			<div id="debugDiv"></div>
 			<br>
 			<div id="receiveDiv"></div>
 			<br>
-			<button id="aav" type="button" onclick = "data('0')">Åben vindue</button>
+			<button id="aav" onclick = "data('0')">Åben vindue</button>
 			<br><br>
-			<button id="aav" type="button" onclick = "data('1')">Luk vindue</button>
+			<button id="aav" onclick = "data('1')">Luk vindue</button>
 			<br><br><br>
-			<button id="aav" type="button" onclick = "data('4')">Strømskinne til</button>
+			<button id="aav" onclick = "data('4')">Strømskinne til</button>
 			<br><br>
-			<button id="aav" type="button" onclick = "data('5')">Strømskinne fra</button>
+			<button id="aav" onclick = "data('5')">Strømskinne fra</button>
 			<br><br><br>
-			<button id="aav" type="button" onclick = "data('2')">Lys til</button>
+			<button id="aav" onclick = "data('2')">Lys til</button>
 			<br><br>
-			<button id="aav" type="button" onclick = "data('3')">Lys fra</button>
+			<button id="aav" onclick = "data('3')">Lys fra</button>
 			<br>
-
 			<input type="hidden" id="GemtInput" >
-
 		</div>
     </body>
 </html>

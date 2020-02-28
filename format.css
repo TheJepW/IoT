@@ -1,14 +1,10 @@
 
 body{
 	background-image: url("img.png");
-	background-color: #000000;
-	background-repeat: no-repeat;
 	background-size:cover;
 	font: bold 20px/25px Sylfaen;
-	text-decoration: none;
 	text-align: center;
 	color: white;
-	
 }	
 
 #welcome {
@@ -18,14 +14,13 @@ body{
 #aav{
 	
   background: rgba(43, 106, 204, 0.9);
-  font: bold 30px/40px Sylfaen;
   color: white;
+  font: bold 30px/40px Sylfaen;
   border-radius: 25px;
   border-style: none;
   font-size: 30px;
   width: 75%;
   outline: none;
-
 }
 
 #aav:active {
