@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+		<! –– Document information ––>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -10,26 +11,36 @@
         <script type="text/javascript" src="index.js"></script>
         <title>Octopus Tech</title>
     </head>
+	 <! –– java script starts; onLoad()  ––>
      <body onload="onLoad()">
+	  <! –– Visible webcontent after this ––>
 		<div id = "content">
 			<div id="debugDiv"></div>
-			<br>
+			<br
+			<! –– Headline ––>
 			<div id="welcome">Octopus Tech!</div>
 			<br>
 			<div id="slogan">- smart home solutions</div>
-			<ul id="bleDeviceList"> </ul>  
+			<! –– Shows bluetooth devices ––>
+			<ul id="bleDeviceList"> </ul>
+			<! –– Search button ––>
 			<button id="aav" onClick = "refreshDeviceList()">Søg efter enhed</button>
 			<br><br>
+			<! –– Status and ID ––>
 			<div id="statusDiv">Status: Disconnected</div>
 			<br>
 			<div id="bleId">DeviceId:</div>
 			<br>
+			<! –– Data recieved ––>
 			<div id="receiveDiv"></div>
 			<br><br>
+			<! –– Window toggle swich ––>
 			<button id="aav" onclick = "data('1')">Vindue</button>
 			<br><br>
+			<! –– Light toggle swich ––>
 			<button id="aav" onclick = "data('2')">Lys til</button>
 			<br>
+			<! –– Javascript dependancie ––>
 			<input type="hidden" id="GemtInput" >
 		</div>
     </body>
