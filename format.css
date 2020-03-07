@@ -1,4 +1,5 @@
 
+/* Styling for the whole sheet */
 body{
 	background-image: url("img.png");
 	background-size:cover;
@@ -8,10 +9,12 @@ body{
 	list-style: none;
 }	
 
+/* Styling for the heading */
 #welcome {
 	font-size: 45px;
 }
 
+/* Styling for the buttons */
 #aav{
 	
   background: rgba(43, 106, 204, 0.9);
@@ -24,6 +27,7 @@ body{
   outline: none;
 }
 
+/* For when button is clicked */
 #aav:active {
   opacity: 0.5;
 }
