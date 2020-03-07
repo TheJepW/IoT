@@ -59,7 +59,7 @@ function onDiscoverDevice(device){
 	if(device.name == "IoT_JMM"){
 		var listItem = document.createElement('li'),
 		html = device.name+ "," + device.id;
-		listItem.innerHTML = device.name;
+		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
 		ble.connect(ConnDeviceId, onConnect, onConnError);
 	}
