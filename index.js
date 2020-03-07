@@ -58,7 +58,7 @@ function onDiscoverDevice(device){
 	//Make a list in html and show devises
 	if(device.name == "IoT_JMM"){
 		var listItem = document.createElement('li'),
-		html = device.name+ "," + device.id;
+		html = device.name;
 		listItem.innerHTML = html;
 		document.getElementById("bleDeviceList").appendChild(listItem);
 		ble.connect(ConnDeviceId, onConnect, onConnError);
