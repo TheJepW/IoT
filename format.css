@@ -1,17 +1,20 @@
 
 /* Styling for the whole sheet */
-body{
+#body{
 	background-image: url("img.png");
 	background-size:cover;
 	font: bold 20px/25px Sylfaen;
 	text-align: center;
 	color: white;
-	list-style-type:none;
 }	
 
-/* Styling for the heading */
 #welcome {
 	font-size: 45px;
+}
+
+/* Styling for the heading */
+#bleDeviceList {
+	list-style-type:none;
 }
 
 /* Styling for the buttons */
